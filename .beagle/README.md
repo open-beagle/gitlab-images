@@ -8,10 +8,11 @@ git fetch upstream
 git merge v14.2.3
 ```
 
-## charts
+## Build
 
 ```bash
-helm repo add gitlab https://charts.gitlab.io/
-helm repo update
-helm pull gitlab/gitlab
+# 1.gitlab-ruby
+# 2.gitlab-go
+# 3.gitlab-logger
+# 4.gitlab-rails
 ```

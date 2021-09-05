@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+require 'erb'
+require 'fileutils'
+
+def compile_assets
+  ENV['COMPILE_ASSETS'].eql?('true')
+end
+
+def ee?
+  ENV['RAILS_EE'].eql?('true')
+end
+
+puts "Rendering Dockerfile"
+
+template = ERB.new(File.read('Dockerfile.erb'))
+File.write('Dockerfile', template.result)
