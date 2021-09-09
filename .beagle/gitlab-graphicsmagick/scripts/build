@@ -1,0 +1,51 @@
+#!/bin/bash
+set -exo pipefail
+
+pushd "/build/GraphicsMagick-${GM_VERSION}"
+
+# See options at http://www.graphicsmagick.org/INSTALL-unix.html#optional-packages-options
+./configure \
+  --disable-openmp \
+  --without-magick-plus-plus \
+  --with-perl=no \
+  --without-bzlib \
+  --without-dps \
+  --without-fpx \
+  --without-jbig \
+  --without-webp \
+  --without-jp2 \
+  --without-lcms2 \
+  --without-trio \
+  --without-ttf \
+  --without-umem \
+  --without-wmf \
+  --without-xml \
+  --without-x \
+  --with-tiff=yes \
+  --with-lzma=yes \
+  --with-jpeg=yes \
+  --with-zlib=yes \
+  --with-png=yes
+
+make -j $(nproc)
+
+make -j $(nproc) check
+
+make DESTDIR=/target install
+
+make distclean
+
+popd # from /build/GraphicsMagick-VERSION/
+
+pushd /target
+
+# cleanup excess we'll never use
+rm -rf usr/local/share/man                                  # man pages, 343 K
+rm -rf usr/local/share/doc/GraphicsMagick/www               # HTML documentation, 6.2 M
+rm -rf usr/local/share/doc/GraphicsMagick/{NEWS,ChangeLog}* # various changelogs, 1.1 M
+rm -rf usr/local/include                                    # development headers, 480 K
+rm -rf usr/local/lib                                        # development libraries, 19 M
+rm -rf usr/local/share/GraphicsMagick-*                     # unused module configs, 3.5 K
+rm -rf usr/local/bin/GraphicsMagick*                        # unused development scripts, 2.4K
+
+popd # from /target

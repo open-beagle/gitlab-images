@@ -15,4 +15,10 @@ git merge v14.2.3
 # 2.gitlab-go
 # 3.gitlab-logger
 # 4.gitlab-rails
+# 5.gitlab-gitaly
+https://cloud.wodcloud.com/git/cloud/gitlab-gitaly
+# 6.gitlab-gomplate
+# 7.gitlab-shell
+https://cloud.wodcloud.com/git/cloud/gitlab-shell
+# 8.postgresql
 ```
