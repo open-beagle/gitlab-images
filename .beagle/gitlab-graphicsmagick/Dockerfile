@@ -1,4 +1,5 @@
 ARG BUILD_IMAGE=registry.cn-qingdao.aliyuncs.com/wod/debian:buster-slim
+ARG BASE_IMAGE=registry.cn-qingdao.aliyuncs.com/wod/alpine:3.13
 
 FROM ${BUILD_IMAGE} as compile
 
@@ -16,8 +17,6 @@ COPY scripts/ /scripts
 RUN /scripts/dependencies
 RUN /scripts/download
 RUN /scripts/build
-
-ARG BASE_IMAGE=registry.cn-qingdao.aliyuncs.com/wod/alpine:3.13
 
 FROM ${BASE_IMAGE}
 COPY --from=compile /target/ /
