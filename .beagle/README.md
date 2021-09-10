@@ -21,4 +21,12 @@ https://cloud.wodcloud.com/git/cloud/gitlab-gitaly
 # 7.gitlab-shell
 https://cloud.wodcloud.com/git/cloud/gitlab-shell
 # 8.postgresql
+# 9.gitlab-runtime
+https://cloud.wodcloud.com/git/cloud/gitlab-foss
+# 10.gitlab-assets
+https://cloud.wodcloud.com/git/cloud/gitlab-foss
+# 11.gitlab-builder
+https://cloud.wodcloud.com/git/cloud/gitlab-foss
+# 12.gitlab-rails
+
 ```
