@@ -12,21 +12,26 @@ git merge v14.2.3
 
 ```bash
 # 1.gitlab-ruby
-# 2.gitlab-go
-# 3.gitlab-logger
-# 4.gitlab-rails
-# 5.gitlab-gitaly
+# 2.gitlab-python
+# 3.gitlab-go
+# 4.gitlab-logger
+# 5.gitlab-rails
+# 6.gitlab-gitaly
 https://cloud.wodcloud.com/git/cloud/gitlab-gitaly
-# 6.gitlab-gomplate
-# 7.gitlab-shell
+# 7.gitlab-gomplate
+# 8.gitlab-shell
 https://cloud.wodcloud.com/git/cloud/gitlab-shell
-# 8.postgresql
-# 9.gitlab-runtime
+# 9.postgresql
+# 10.gitlab-runtime
 https://cloud.wodcloud.com/git/cloud/gitlab-foss
-# 10.gitlab-assets
+# 11.gitlab-assets
 https://cloud.wodcloud.com/git/cloud/gitlab-foss
-# 11.gitlab-builder
+# 12.gitlab-builder
 https://cloud.wodcloud.com/git/cloud/gitlab-foss
-# 12.gitlab-rails
-
+# 13.gitlab-rails
+https://cloud.wodcloud.com/git/cloud/gitlab-foss
+# 14.gitlab-webservice
+https://cloud.wodcloud.com/git/cloud/gitlab-foss
+# 15.gitlab-sidekiq
+https://cloud.wodcloud.com/git/cloud/gitlab-foss
 ```
