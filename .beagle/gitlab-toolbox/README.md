@@ -21,7 +21,6 @@ docker build \
 
 docker push registry.cn-qingdao.aliyuncs.com/wod/gitlab-toolbox:v14.2.3-arm64
 
-
 # ppc64le
 docker build \
   --build-arg RAILS_IMAGE=registry.cn-qingdao.aliyuncs.com/wod-arm/gitlab-rails:v14.2.3-ppc64le \
