@@ -1,0 +1,60 @@
+kind: pipeline
+name: docker
+
+platform:
+  runner: 10.11.92.33
+
+volumes:
+  - name: go
+    host:
+      path: /data/cache/golang/pkg
+  - name: docker
+    host:
+      path: /var/run/docker.sock
+
+workspace:
+  base: /go
+  path: src/gitlab.com/gitlab-org/gitaly
+
+steps:
+  - name: gitlab-toolbox-arch
+    image: registry.cn-qingdao.aliyuncs.com/wod/devops-docker-manifest:v1.2.3
+    volumes:
+      - name: docker
+        path: /var/run/docker.sock
+    settings:
+      platforms: linux/amd64,linux/arm64,linux/ppc64le
+      template: registry.cn-qingdao.aliyuncs.com/wod/gitlab-toolbox:v14.2.3-ARCH
+      target: registry.cn-qingdao.aliyuncs.com/wod/gitlab-toolbox:v14.2.3
+      username:
+        from_secret: REGISTRY_USER_ALIYUN
+      password:
+        from_secret: REGISTRY_PASSWORD_ALIYUN
+
+  - name: gitlab-exporter-arch
+    image: registry.cn-qingdao.aliyuncs.com/wod/devops-docker-manifest:v1.2.3
+    volumes:
+      - name: docker
+        path: /var/run/docker.sock
+    settings:
+      platforms: linux/amd64,linux/arm64,linux/ppc64le
+      template: registry.cn-qingdao.aliyuncs.com/wod/gitlab-exporter:11.2.0-ARCH
+      target: registry.cn-qingdao.aliyuncs.com/wod/gitlab-exporter:11.2.0
+      username:
+        from_secret: REGISTRY_USER_ALIYUN
+      password:
+        from_secret: REGISTRY_PASSWORD_ALIYUN
+
+---
+kind: secret
+name: REGISTRY_USER_ALIYUN
+get:
+  path: devops-registry-aliyun
+  name: USERNAME
+
+---
+kind: secret
+name: REGISTRY_PASSWORD_ALIYUN
+get:
+  path: devops-registry-aliyun
+  name: PASSWORD

@@ -38,4 +38,6 @@ https://cloud.wodcloud.com/git/cloud/gitlab-foss
 https://cloud.wodcloud.com/git/cloud/gitlab-foss
 # 17.gitlab-workhorse
 https://cloud.wodcloud.com/git/cloud/gitlab-foss
+# 18.gitlab-toolbox
+# 19.gitlab-exporter
 ```

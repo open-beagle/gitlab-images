@@ -1,4 +1,3 @@
-ARG PYTHON_IMAGE="registry.cn-qingdao.aliyuncs.com/wod-arm/gitlab-python:3.8.9-amd64"
 ARG RAILS_IMAGE="registry.cn-qingdao.aliyuncs.com/wod-arm/gitlab-rails:v14.2.3-amd64"
 ARG GITALY_IMAGE="registry.cn-qingdao.aliyuncs.com/wod-arm/gitlab-logger:v1.1.0-amd64"
 ARG PYTHON_IMAGE="registry.cn-qingdao.aliyuncs.com/wod-arm/gitlab-python:3.8.9-amd64"
