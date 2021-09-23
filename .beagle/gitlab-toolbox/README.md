@@ -23,6 +23,7 @@ docker push registry.cn-qingdao.aliyuncs.com/wod/gitlab-toolbox:v14.2.3-arm64
 
 # ppc64le
 docker build \
+  --no-cache \
   --build-arg RAILS_IMAGE=registry.cn-qingdao.aliyuncs.com/wod-arm/gitlab-rails:v14.2.3-ppc64le \
   --build-arg GITALY_IMAGE=registry.cn-qingdao.aliyuncs.com/wod/gitlab-gitaly:v14.2.3-ppc64le \
   --build-arg PYTHON_IMAGE=registry.cn-qingdao.aliyuncs.com/wod-arm/gitlab-python:3.8.9-ppc64le \

@@ -1,6 +1,6 @@
-ARG RAILS_IMAGE="registry.cn-qingdao.aliyuncs.com/wod-arm/gitlab-rails:v14.2.3-amd64"
-ARG GITALY_IMAGE="registry.cn-qingdao.aliyuncs.com/wod-arm/gitlab-logger:v1.1.0-amd64"
-ARG PYTHON_IMAGE="registry.cn-qingdao.aliyuncs.com/wod-arm/gitlab-python:3.8.9-amd64"
+ARG RAILS_IMAGE="registry.cn-qingdao.aliyuncs.com/wod-arm/gitlab-rails:v14.2.3"
+ARG GITALY_IMAGE="registry.cn-qingdao.aliyuncs.com/wod-arm/gitlab-gitaly:v14.2.3"
+ARG PYTHON_IMAGE="registry.cn-qingdao.aliyuncs.com/wod-arm/gitlab-python:3.8.9"
 
 FROM ${PYTHON_IMAGE} AS python
 
@@ -23,6 +23,8 @@ RUN apt-get update \
   openssl \
   tar \
   && ldconfig \
+  && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- -y \
+  && . $HOME/.cargo/env \
   && pip3 install --upgrade s3cmd==${S3CMD_VERSION} \
   && pip3 install gsutil==${GSUTIL_VERSION} crcmod \
   && apt-get purge -y --auto-remove gcc \
