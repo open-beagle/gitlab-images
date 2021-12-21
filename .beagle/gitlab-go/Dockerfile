@@ -7,6 +7,7 @@ ARG GO_ARCH=amd64
 ARG BUILD_DIR=/tmp/build
 
 ENV GO_URL="https://storage.googleapis.com/golang/go${GO_VERSION}.linux-${GO_ARCH}.tar.gz"
+ENV GOPATH="/go"
 
 # install go
 RUN mkdir ${BUILD_DIR} \

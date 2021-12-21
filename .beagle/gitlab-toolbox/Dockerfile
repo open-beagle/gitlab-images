@@ -15,6 +15,10 @@ COPY --from=python /usr/local/bin /usr/local/bin/
 COPY --from=python /usr/local/lib /usr/local/lib/
 COPY --from=python /usr/local/include /usr/local/include/
 COPY --from=gitaly  /usr/local/bin/gitaly-backup /usr/local/bin/
+COPY --from=gitaly /usr/bin/git /usr/bin/git-cvsserver /usr/bin/git-shell /usr/bin/
+RUN ln -s /usr/bin/git /usr/bin/git-receive-pack && \
+ln -s /usr/bin/git /usr/bin/git-upload-archive && \
+ln -s /usr/bin/git /usr/bin/git-upload-pack
 
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \

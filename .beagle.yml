@@ -38,8 +38,8 @@ steps:
         path: /var/run/docker.sock
     settings:
       platforms: linux/amd64,linux/arm64,linux/ppc64le
-      template: registry.cn-qingdao.aliyuncs.com/wod/gitlab-exporter:11.2.0-ARCH
-      target: registry.cn-qingdao.aliyuncs.com/wod/gitlab-exporter:11.2.0
+      template: registry.cn-qingdao.aliyuncs.com/wod/gitlab-exporter:v11.2.0-ARCH
+      target: registry.cn-qingdao.aliyuncs.com/wod/gitlab-exporter:v11.2.0
       username:
         from_secret: REGISTRY_USER_ALIYUN
       password:
